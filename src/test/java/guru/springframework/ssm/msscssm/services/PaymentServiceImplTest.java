@@ -28,7 +28,7 @@ class PaymentServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        payment = Payment.builder().amount(new BigDecimal(12.99)).build();
+        payment = Payment.builder().amount(new BigDecimal("12.99")).build();
     }
 
     @Transactional
@@ -43,7 +43,7 @@ class PaymentServiceImplTest {
 
         Payment preAuthedPayment = paymentRepository.getOne(savedPayment.getId());
 
-        System.out.println("Should be PRE_AUTH");
+        System.out.println("Should be PRE_AUTH OR PRE_AUTH_ERROR");
         System.out.println(sm.getState().getId());
 
         System.out.println(preAuthedPayment);
